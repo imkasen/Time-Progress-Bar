@@ -14,7 +14,7 @@ GRAPH_LENGTH = 30
 
 BLOCKS = os.getenv("INPUT_BLOCKS")
 REPOSITORY = os.getenv("INPUT_REPOSITORY")
-GH_TOKEN = os.getenv("INPUT_GT_TOKEN")
+GH_TOKEN = os.getenv("INPUT_GH_TOKEN")
 COMMIT_MESSAGE = os.getenv("INPUT_COMMIT_MESSAGE")
 TIME_ZONE = os.getenv("INPUT_TIME_ZONE")
 
@@ -44,6 +44,13 @@ def decode_readme(data: str) -> str:
     """
     decode_bytes = base64.b64decode(data)
     return str(decode_bytes, 'utf-8')
+
+
+def gen_new_readme(graph: str, readme: str) -> str:
+    """
+    Generate a new README.md
+    """
+    return re.sub(reg, f"{START_COMMENT}\n{graph}\n{END_COMMENT}", readme)
 
 
 def get_graph() -> str:
@@ -91,13 +98,6 @@ def get_graph() -> str:
     \n\
     ⏰ *Updated at {update_time} UTC{TIME_ZONE}*\n\
     "
-
-
-def gen_new_readme(graph: str, readme: str) -> str:
-    """
-    Generate a new README.md
-    """
-    return re.sub(reg, f"{START_COMMENT}\n{graph}\n{END_COMMENT}", readme)
 
 
 if __name__ == '__main__':

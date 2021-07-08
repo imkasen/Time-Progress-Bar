@@ -3,7 +3,7 @@ author: Kasen
 description: "Add a time progress bar in your README"
 
 inputs:
-  GT_TOKEN:
+  GH_TOKEN:
     description: "Github access token"
     required: true
     default: ${{ github.token }}
