@@ -15,7 +15,7 @@ Add two comments to your `README.md` like this:
 
 # Extra settings
 
-1. You can specify your time zone (-12 ~ +14), the default is `UTC+0`.
+1. You can specify your time zone (`-12` ~ `+14`), the default is `UTC+0`.
     
     ``` yaml
     - uses: imkasen/Time-Progress-Bar@master

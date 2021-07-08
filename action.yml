@@ -9,7 +9,7 @@ inputs:
     default: ${{ github.token }}
 
   TIME_ZONE:
-    description: "Set the user's UTC time zone (-12 ~ +14)"
+    description: "Set the user's UTC time zone ('-12' ~ '+14')"
     required: false
     default: "+0"
 
