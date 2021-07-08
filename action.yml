@@ -1,0 +1,37 @@
+name: "Time Progress Bar"
+author: Kasen
+description: "Add a time progress bar in your README"
+
+inputs:
+  GT_TOKEN:
+    description: "Github access token"
+    required: true
+    default: ${{ github.token }}
+
+  TIME_ZONE:
+    description: "Set the user's UTC time zone (-12 ~ +14)"
+    required: false
+    default: "+0"
+
+  REPOSITORY:
+    description: "Your github repository"
+    required: false
+    default: ${{ github.repository }}
+
+  COMMIT_MESSAGE:
+    description: "Add a commit message"
+    required: false
+    default: "Update this repo's README with time progress bar"
+
+  BLOCKS:
+    description: "Add the progress blocks"
+    required: false
+    default: "░▒▓█"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "bar-chart"
+  color: "blue"
