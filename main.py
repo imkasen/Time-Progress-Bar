@@ -17,6 +17,11 @@ REPOSITORY = os.getenv("INPUT_REPOSITORY")
 GH_TOKEN = os.getenv("INPUT_GH_TOKEN")
 COMMIT_MESSAGE = os.getenv("INPUT_COMMIT_MESSAGE")
 TIME_ZONE = os.getenv("INPUT_TIME_ZONE")
+if int(TIME_ZONE) > 14 or int(TIME_ZONE) < -12:
+    print("Time zone number is wrong!")
+    sys.exit(1)
+if int(TIME_ZONE) >= 0 and not TIME_ZONE.startswith("+"):
+    TIME_ZONE = "+" + TIME_ZONE
 
 now = datetime.now()
 this_year = now.year
@@ -90,14 +95,14 @@ def get_graph() -> str:
 
     # content
     return f"\
-    ``` text\n\
-    Year  progress {{ {progress_bar_of_this_year}  }} {format(progress_of_this_year * 100, '0>5.2f')} %\n\
-    Month progress {{ {progress_bar_of_this_month}  }} {format(progress_of_this_month * 100, '0>5.2f')} %\n\
-    Week  progress {{ {progress_bar_of_this_week}  }} {format(progress_of_this_week * 100, '0>5.2f')} %\n\
-    ```\n\
-    \n\
-    ⏰ *Updated at {update_time} UTC{TIME_ZONE}*\n\
-    "
+``` text\n\
+Year  progress {{ {progress_bar_of_this_year}  }} {format(progress_of_this_year * 100, '0>5.2f')} %\n\
+Month progress {{ {progress_bar_of_this_month}  }} {format(progress_of_this_month * 100, '0>5.2f')} %\n\
+Week  progress {{ {progress_bar_of_this_week}  }} {format(progress_of_this_week * 100, '0>5.2f')} %\n\
+```\n\
+\n\
+⏰ *Updated at {update_time} UTC{TIME_ZONE}*\n\
+"
 
 
 if __name__ == '__main__':
