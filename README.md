@@ -18,7 +18,7 @@ Add two comments to your `README.md` like this:
 1. You can specify your time zone (`-12` ~ `+14`), the default is `UTC+0`.
     
     ``` yaml
-    - uses: imkasen/Time-Progress-Bar@master
+    - uses: imkasen/time-progress-bar@master
       with:
         TIME_ZONE: +8
     ```
@@ -26,7 +26,7 @@ Add two comments to your `README.md` like this:
 2. You can specify a commit message, the default is *"Update this repo's README with time progress bar"*.
 
     ```yaml
-    - uses: imkasen/Time-Progress-Bar@master
+    - uses: imkasen/time-progress-bar@master
       with:
         COMMIT_MESSAGE: Update the README
     ```
@@ -34,7 +34,7 @@ Add two comments to your `README.md` like this:
 3. You can set the block characters, the default is "░▒▓█".
 
     ```yaml
-    - uses: imkasen/Time-Progress-Bar@master
+    - uses: imkasen/time-progress-bar@master
       with:
         BLOCKS: ⣀⣤⣶⣿
     ```
