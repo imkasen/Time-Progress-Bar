@@ -31,7 +31,7 @@ Add two comments to your `README.md` like this:
         COMMIT_MESSAGE: Update the README
     ```
 
-3. You can change the block characters, the default is "░▒▓█".
+3. You can change the block characters, the defaults are "░▒▓█".
 
     ```yaml
     - uses: imkasen/time-progress-bar@main
