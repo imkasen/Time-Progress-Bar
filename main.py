@@ -63,6 +63,13 @@ def get_graph() -> str:
     """
     Get final graph.
     """
+    # Update time
+    tz: int = int(TIME_ZONE)
+    update_time: str = datetime.utcnow() \
+        .replace(tzinfo=timezone.utc) \
+        .astimezone(timezone(timedelta(hours=tz))) \
+        .strftime('%Y-%m-%d %H:%M:%S %p')
+
     # Year Progress
     start_time_of_this_year: float = datetime(this_year, 1, 1, 0, 0, 0).timestamp()
     end_time_of_this_year: float = datetime(this_year, 12, 31, 23, 59, 59).timestamp()
@@ -86,13 +93,6 @@ def get_graph() -> str:
     progress_of_this_week: float = \
         (datetime.now().timestamp() - start_time_of_this_week) / (end_time_of_this_week - start_time_of_this_week)
     progress_bar_of_this_week: str = gen_progress_bar(progress_of_this_week)
-
-    # Update time
-    tz: int = int(TIME_ZONE)
-    update_time: str = datetime.utcnow() \
-        .replace(tzinfo=timezone.utc) \
-        .astimezone(timezone(timedelta(hours=tz))) \
-        .strftime('%Y-%m-%d %H:%M:%S %p')
 
     # content
     return f"\
